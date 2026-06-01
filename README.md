@@ -1,3 +1,11 @@
+---
+title: Pixelle Video API
+sdk: docker
+app_port: 7860
+suggested_hardware: cpu-basic
+base_path: /docs
+---
+
 <h1 align="center">🎬 Pixelle-Video —— AI 全自动短视频引擎</h1>
 
 <p align="center"><a href="README_EN.md">English</a> | <b>中文</b></p>

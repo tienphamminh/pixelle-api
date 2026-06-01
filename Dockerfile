@@ -64,15 +64,17 @@ COPY resources ./resources
 COPY docs/images ./docs/images
 COPY docs/FAQ*.md ./docs/
 COPY render-start.sh ./render-start.sh
+COPY hf-start.sh ./hf-start.sh
 
 # Create output, data and temp directories
-RUN mkdir -p /app/output /app/data /app/temp
+RUN mkdir -p /app/output /app/data /app/temp && \
+    chmod 777 /app /app/output /app/data /app/temp
 
 # Expose ports
 # 8000: API service
 # 8501: Web UI service
-EXPOSE 8000 8501
+EXPOSE 8000 8501 7860
 
 # Default command (can be overridden in docker-compose)
-CMD ["uv", "run", "python", "api/app.py"]
+CMD ["sh", "hf-start.sh"]
 
