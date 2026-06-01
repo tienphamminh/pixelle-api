@@ -63,6 +63,7 @@ COPY workflows ./workflows
 COPY resources ./resources
 COPY docs/images ./docs/images
 COPY docs/FAQ*.md ./docs/
+COPY render-start.sh ./render-start.sh
 
 # Create output, data and temp directories
 RUN mkdir -p /app/output /app/data /app/temp
