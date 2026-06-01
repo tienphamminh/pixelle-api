@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="template:media-width" content="576">
+    <meta name="template:media-height" content="1024">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Motion Comic Image With Subtitle - 1080x1920</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 1080px;
+            height: 1920px;
+            overflow: hidden;
+            background: #05070d;
+        }
+
+        body {
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ffffff;
+        }
+
+        .media {
+            position: absolute;
+            inset: 0;
+            background-image: url("{{image}}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .vignette {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 50% 36%, rgba(255, 255, 255, 0.05), transparent 42%),
+                linear-gradient(180deg, rgba(0, 0, 0, 0.14), transparent 24%, transparent 58%, rgba(0, 0, 0, 0.74));
+        }
+
+        .subtitle-wrap {
+            position: absolute;
+            left: 72px;
+            right: 72px;
+            bottom: 184px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .subtitle {
+            max-width: 936px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 800;
+            line-height: 1.24;
+            letter-spacing: 0;
+            color: #ffffff;
+            text-shadow:
+                -3px -3px 0 #000000,
+                 3px -3px 0 #000000,
+                -3px  3px 0 #000000,
+                 3px  3px 0 #000000,
+                 0 8px 22px rgba(0, 0, 0, 0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="media"></div>
+    <div class="vignette"></div>
+    <div class="subtitle-wrap">
+        <div class="subtitle">{{text}}</div>
+    </div>
+</body>
+</html>

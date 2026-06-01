@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="template:media-width" content="576">
+    <meta name="template:media-height" content="1024">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Motion Comic Image - 1080x1920</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 1080px;
+            height: 1920px;
+            overflow: hidden;
+            background: #05070d;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .media {
+            position: absolute;
+            inset: 0;
+            background-image: url("{{image}}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .vignette {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.05), transparent 42%),
+                linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent 28%, transparent 68%, rgba(0, 0, 0, 0.28));
+        }
+    </style>
+</head>
+<body>
+    <div class="media"></div>
+    <div class="vignette"></div>
+</body>
+</html>

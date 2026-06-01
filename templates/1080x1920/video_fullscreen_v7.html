@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="template:media-width" content="384">
+    <meta name="template:media-height" content="682">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Fullscreen Vertical Video</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /*
+         * Pixelle renders this HTML as a transparent PNG overlay.
+         * Transparent areas reveal the AI video base layer underneath.
+         */
+        html, body {
+            width: 1080px;
+            height: 1920px;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Source Han Sans', 'Microsoft YaHei',
+                         -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #fff;
+            position: relative;
+        }
+
+        .vignette {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 1080px;
+            height: 520px;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.40) 50%,
+                rgba(0, 0, 0, 0.75) 100%
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .content {
+            position: absolute;
+            bottom: 260px;
+            left: 80px;
+            width: 920px;
+            z-index: 3;
+            text-align: center;
+        }
+
+        .text {
+            font-size: 52px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.4;
+            letter-spacing: 1px;
+            text-shadow:
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000,
+                 0    6px 18px rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="vignette"></div>
+    <div class="content">
+        <div class="text">{{text}}</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="template:media-width" content="768">
+    <meta name="template:media-height" content="768">
+    <meta name="viewport" content="width=1080, height=1080">
+    <title>Fullscreen Square Video</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /*
+         * KIẾN TRÚC GIỐNG v6 ĐÃ VERIFY:
+         * - Body TRONG SUỐT → video AI hiện ra fullscreen
+         * - Chỉ render gradient + subtitle ĐÈ LÊN video
+         */
+        html, body {
+            width: 1080px;
+            height: 1080px;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Source Han Sans', 'Microsoft YaHei',
+                         -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Gradient mờ ở đáy — nhỏ hơn so với template 9:16 vì canvas ngắn hơn */
+        .vignette {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 1080px;
+            height: 340px;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.45) 50%,
+                rgba(0, 0, 0, 0.80) 100%
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Phụ đề voiceover */
+        .content {
+            position: absolute;
+            bottom: 90px;
+            left: 80px;
+            width: 920px;
+            z-index: 3;
+            text-align: center;
+        }
+
+        .text {
+            font-size: 46px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.4;
+            letter-spacing: 0.5px;
+            text-shadow:
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000,
+                 0    5px 16px rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <!-- Video AI fullscreen 1080×1080 (do body trong suốt) -->
+    <div class="vignette"></div>
+    <div class="content">
+        <div class="text">{{text}}</div>
+    </div>
+</body>
+</html>
